@@ -4053,12 +4053,15 @@ module.exports = yeast;
 
 /***/ }),
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__event_emitter__ = __webpack_require__(29);
 
 
-const EventEmitter = __webpack_require__(29);
+
+
+//const EventEmitter = require('./event-emitter');
 
 window.whiteboard = new window.EventEmitter();
 
@@ -4173,7 +4176,8 @@ whiteboard.draw = function (start, end, strokeColor, shouldBroadcast) {
 
 };
 
-module.exports = whiteboard;
+/* harmony default export */ __webpack_exports__["a"] = (whiteboard);
+//module.exports = whiteboard;
 
 /***/ }),
 /* 27 */
@@ -4292,13 +4296,17 @@ exports.Socket = __webpack_require__(21);
 
 /***/ }),
 /* 28 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__whiteboard__ = __webpack_require__(26);
 
 
 const io = __webpack_require__(27);
-const whiteboard = __webpack_require__(26);
+
+//const whiteboard = require('./whiteboard');
+
 var socket = io(window.location.origin);
 
 socket.on('connect', function () {
@@ -4311,23 +4319,23 @@ socket.on('load', function (strokes) {
     var start = stroke.start;
     var end = stroke.end;
     var color = stroke.color;
-    whiteboard.draw(start, end, color, false);
+    __WEBPACK_IMPORTED_MODULE_0__whiteboard__["a" /* default */].draw(start, end, color, false);
   });
 
 });
 
 socket.on('draw', function (start, end, color) {
-  whiteboard.draw(start, end, color, false);
+  __WEBPACK_IMPORTED_MODULE_0__whiteboard__["a" /* default */].draw(start, end, color, false);
 });
 
-whiteboard.on('draw', function (start, end, color) {
+__WEBPACK_IMPORTED_MODULE_0__whiteboard__["a" /* default */].on('draw', function (start, end, color) {
   socket.emit('draw', start, end, color);
 });
 
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
@@ -4375,7 +4383,8 @@ EventEmitter.prototype.emit = function (eventName) {
 
 };
 
-module.exports = EventEmitter;
+/* unused harmony default export */ var _unused_webpack_default_export = (EventEmitter);
+//module.exports = EventEmitter;
 
 /***/ }),
 /* 30 */

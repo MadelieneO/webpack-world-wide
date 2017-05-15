@@ -1,7 +1,5 @@
 'use strict';
 
-window.EventEmitter = EventEmitter;
-
 // our EventEmitter contructor function
 function EventEmitter () {
   this.subscribers = {};

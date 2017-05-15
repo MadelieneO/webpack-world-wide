@@ -1,8 +1,7 @@
 'use strict';
 
-const io = require('socket.io-client');
+import io from 'socket.io-client';
 import whiteboard from './whiteboard';
-//const whiteboard = require('./whiteboard');
 
 var socket = io(window.location.origin);
 

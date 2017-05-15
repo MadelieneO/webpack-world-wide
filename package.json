@@ -6,7 +6,7 @@
   "author": "instructors@fullstackacademy.com",
   "scripts": {
     "start": "nodemon server.js",
-    "build": "webpack"
+    "build": "webpack --watch"
   },
   "dependencies": {
     "express": "^4.12.3",
